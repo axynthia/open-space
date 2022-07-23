@@ -12,8 +12,8 @@ export class AppComponent {
   mobileQuery: MediaQueryList;
 
   navItems = [
-    { link: '.', name: 'Booking' },
-    { link: '.', name: 'Overview' },
+    { link: 'booking', name: 'Booking' },
+    { link: 'overview', name: 'Overview' },
   ];
 
   private _mobileQueryListener: () => void;
