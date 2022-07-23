@@ -21,7 +21,11 @@ div {
         flex: 1;
 
         mat-sidenav {
-            width: 200px;
+            width: 12em;
+        }
+
+        mat-sidenav-content {
+            padding: .5em 1.75em;
         }
     }
 
