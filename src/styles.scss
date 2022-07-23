@@ -2,41 +2,51 @@
 
 @include mat.core();
 
+/* Mixins */
+@mixin primary-color($primary) {
+  .mat-list-base>a.is-active {
+    color: lighten(map_get($primary, 500), 15);
+  }
+}
+
+/* Themes */
 $default-primary: mat.define-palette(mat.$indigo-palette, 500);
 $default-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $default-warn: mat.define-palette(mat.$red-palette);
 
-$default-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $default-primary,
-      accent: $default-accent,
-      warn: $default-warn,
-    ),
-  )
-);
+$default-theme: mat.define-light-theme((color: (primary: $default-primary,
+        accent: $default-accent,
+        warn: $default-warn,
+      ),
+    ));
 
 @include mat.all-component-themes($default-theme);
+@include primary-color($default-primary);
 
 
 
 $dark-primary: mat.define-palette(mat.$purple-palette, 500);
 $dark-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
 $dark-warn: mat.define-palette(mat.$red-palette);
-$dark-theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: $dark-primary,
-      accent: $dark-accent,
-      warn: $dark-warn,
-    ),
-  )
-);
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+    ));
 
 .darkside {
   @include mat.all-component-colors($dark-theme);
+
+  @include primary-color($dark-primary);
 }
 
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
